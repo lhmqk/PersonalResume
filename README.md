@@ -1,4 +1,3 @@
-ResumeTemplate
-==============
-
-A Latex template for resumes in institute standard format. Update: Fixed remaining bugs.
+<h1>Personal Resume of Otter J</h1>
+<img src="./resume-1.png">
+<img src="./resume-2.png">
