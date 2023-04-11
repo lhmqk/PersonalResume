@@ -1,205 +1,189 @@
-%% start of file `template.tex'.
-%% 
-%% Original Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
-%% Modified Copyright 2021-2022: Rajib Das Bhagat (rajibdasbhagat@gmail.com).
-%
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License version 1.3c,
-% available at http://www.latex-project.org/lppl/.
+\documentclass[a4paper,20pt]{article}
 
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
 
-\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-% moderncv themes
-\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstylef' and 'banking'
-\moderncvcolor{black}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+% Adjust margins
+% \addtolength{\oddsidemargin}{-0.530in}
+% \addtolength{\evensidemargin}{-0.375in}
+% \addtolength{\textwidth}{1in}
+% \addtolength{\topmargin}{-.45in}
+% \addtolength{\textheight}{1in}
 
-% character encoding
-\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
-%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-\usepackage{fontawesome}
-% adjust the page margins
-\usepackage[scale=0.9]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\urlstyle{rm}
 
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
 
-% personal data
-\name{Khai}{Lam Quang}
-\title{Third-year Student}
-\insti{Ho Chi Minh University of Technology - HCMUT}
-%\extrainfo{Placement Registration Number: Y/33/CS/20/067}
-\address{497 Hoa Hao}{Ward 7}{District 10, Ho Chi Minh City}
-% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-\phone[mobile]{+84-968910016}                   % optional, remove / comment the line if not wanted
-%\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
-%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
-\email{lamkhai2378@gmail.com}                               % optional, remove / comment the line if not wanted
-\homepage{www.linkedin.com/in/xxxxxxxxxx}                         % optional, remove / comment the line if not wanted
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
 
-\extrainfo{\homepagesymbol \httplink{www.github.com/lhmqk}}
-                % optional, remove / comment the line if not wanted
-\photo[64pt][0.4pt]{logo.png}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{Love thy journey, never thy destination!}                           
-%----------------------------------------------------------------------------------
-%            content
-%----------------------------------------------------------------------------------
-\begin{document}
-%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
-%-----       resume       ---------------------------------------------------------
-%\makecvtitle
-\hypersetup{
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{ #2 \vspace{-2pt}}
+  }
 }
-\urlstyle{same}
 
-\noindent
-\begin{minipage}{.78\textwidth}
- \makecvtitle
-\end{minipage}%
-\begin{minipage}{.30\textwidth}
-  \centering
-  \includegraphics[height=3cm]{logo.png}
-\end{minipage}
+\newcommand{\resumeItemWithoutTitle}[1]{
+  \item\small{
+    {\vspace{-2pt}}
+  }
+}
 
-\vspace{-1em}
-\section{Applications for Internship in:}
-\cvlistitem{Web Development}
-\cvlistitem{Hardware Design/Development Engineer}
-\cvlistitem{C/C++ Programming for Hardware}
-\cvlistitem{IoTs and Network Security}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
 
-\vspace{-1em}
-\section{Education}
-\begin{cvcolumns}
-    \cvcolumn[0.30]{~~~~~~~~~~~~~~~~Program}
-    {
-        \cvcolumncell {~\textit{ {\href{https://somelinks}{\textcolor{blue}{Bachelor}}}} (Computer Engineering}
-        \cvcolumncell {\textit{~~~~~~~~~~~~~- High-quality program)}}
-        \cvcolumncell {}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-----------------------------
+%%%%%%  CV STARTS HERE  %%%%%%
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{{\LARGE Quang Khai Lam}} & Location: Ho Chi Minh City, Vietnam\\
+  \href{https://github.com/lhmqk}{Github: github.com/lhmqk} & Mobile: +84-096-8910-016 \\
+  \href{https://www.linkedin.com/in/lh-mqk/}{LinkedIn: linkedin.com/in/lh-mqk/} & Email: \href{mailto:}{khai.lam2404@hcmut.edu.vn}
+\end{tabular*}
+\vspace{-8pt}
+\begin{center}
+    \parbox{4.6in}{
+    \begin{center}
+        I am a conscientious and enthusiastic third-year Computer Engineering student. I have strong technical skills and great interpersonal skills, enabling me to quickly adapt to any environment.
+    \end{center}
     }
-    \cvcolumn[0.42]{~~~~~~~~~~~~~Institution/Board}
-    {
-        \cvcolumncell{~~~~~~~~~~~~Ho Chi Minh University of Technology}
-        \cvcolumncell{\textit{~~Vietnam National University, Ho Chi Minh City}}
-        \cvcolumncell {}
-    }
-    
-    \cvcolumn[0.08]{~~~CGPA}
-    {
-        \cvcolumncell{\textbf{~~~~7.0/10}}
-        \cvcolumncell{}
-        \cvcolumncell {}
-    }
-      
-    \cvcolumn{~~~~~~~~~~~~Year}
-    {
-        \cvcolumncell{~~~~~~~~~~2020-2024}
-        \cvcolumncell{}
-        \cvcolumncell {}
-    }
-\end{cvcolumns}
+\end{center}
+%-----------EDUCATION-----------------
+\section{~~Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Ho Chi Minh University of Technology}{Ho Chi Minh City, Vietnam}
+      {High Quality Program - Bachelor of Computer Engineering}{Oct 2020 - Present}
+      {\scriptsize \textit{ \footnotesize{\newline{}\textbf{Relevant Courses: }Electrical Electronic Circuits, Computer Architecture, Data Structures and Algorithms, Operating Systems, Computer Networks, Microprocessors-Microcontrollers, IoT Application Development}}}
+    \resumeSubHeadingListEnd
+	    
+\vspace{-5pt}
+\section{Skills Summary}
+	\resumeSubHeadingListStart
+	\resumeSubItem{Languages}{~~~~~~HTML5, CSS3, JavaScript, Python, PHP, SQL, C/C++, Assembly}
+	\resumeSubItem{Frameworks}{~~~~ReactJS, Django, NodeJS}
+	\resumeSubItem{Tools}{~~~~~~~~~~~~~~GIT, MySQL, SQLite}
+	\resumeSubItem{Platforms}{~~~~~~~Windows, Linux, Web, Arduino, Raspberry, STM32}
+	\resumeSubItem{Soft Skills}{~~~~~~~Communication, Problem-Solving, Teamwork, Writing, Public Speaking, Time Management}
 
-\vspace{-2em}
-\section{Knowledge}
-\cvlistdoubleitem{
-{Data Structure and Algorithm}}{
-{Web Development}}
+\resumeSubHeadingListEnd
+\vspace{-5pt}
+% \section{Experience}
+%   \resumeSubHeadingListStart
+%     \resumeSubheading{Google Summer of Code - Submitty}{Remote}
+%     {Student Developer (Full-time)}{May 2019 - Sep 2019}
+%     \resumeItemListStart
+%         \resumeItem{Discussion Forum Upgrades}
+%           {Refactor forum for performance to handle large databases.}
+%           \resumeItem{REST API for Discussion Forum}
+%           {Symphony \& Twig based Forum parts converted to API-first interface.}
+%           \resumeItem{Ratchet PHP WebSocket}{Implemented a WebSocket for low-latency real time exchange of posts and thread updates.}
+%       \resumeItemListEnd
+% \vspace{-5pt}
 
-\cvlistdoubleitem{
-{Database System}}{
-{Operating System}}
+% \resumeSubHeadingListEnd
 
-\cvlistdoubleitem{
-{Computer Architecture}}{
-{Computer Networks}}
+%-----------PROJECTS-----------------
+% \vspace{-5pt}
+\section{Projects}
+\resumeSubHeadingListStart
+    \resumeSubItem{
+        \begin{minipage}[t]{7.9cm}
+        \flushleft
+        Smart Air Purifier System For Household Usage
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{5.6cm}
+        \flushright
+        Python, Flutter | Sep - Dec 2022
+        \end{minipage}
+    }{
+    \begin{itemize}
+        \item[-]Description: Implementation of an air purifier with abilities to detect temperature, humidity, PM2.5 dust and harmful gases concentration supporting with a mobile application for supervisor and control.
+        \item[-]Field: Multidisciplinary Project - Software Engineering Major.
+        \item[-]Role: Sensor System Implementation and IoTs Gateway Development.
+    \end{itemize}}
+    \resumeSubItem{
+        \begin{minipage}[t]{11cm}
+        \flushleft
+        Chess Clock With Editing Capability Using STM32F103C8T6 Blue Pill Development Kit And 7400-Series Intergrated Circuits
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{3.3cm}
+        \flushright
+        C | Sep - Dec 2022
+        \end{minipage}
+    }{
+    \begin{itemize}
+        \item[-]Description: Implement a digital chess clock using an STM32 microcontroller and other integrated circuits on the breadboard.
+        \item[-]Field: Logic Design Project - Computer Engineering Major.
+        \item[-]Role: Display Driver Implementation.
+    \end{itemize}}
+    \resumeSubItem{
+        \begin{minipage}[t]{4.5cm}
+        \flushleft
+        Simle Traffic Lights System
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{3.3cm}
+        \flushright
+        C | Sep - Dec 2022
+        \end{minipage}
+    }{
+    \begin{itemize}
+        \item[-]Description: Traffic lights system for an intersection with three modes (automatic, modifying waiting time for green and yellow lights) using custom board with STM32F103RBT6 MCU.
+        \item[-]Field: Microprocessors-Microcontrollers Project.
+        \item[-]Role: Collaborative Developer.
+    \end{itemize}}
+\resumeSubHeadingListEnd
+\vspace{-5pt}
+%-----------Languages-----------------
+\section{Languages}
+\begin{description}[font=$\bullet$]
+\item {\textbf{Vietnamese}: Native speaker.}
+\vspace{-5pt}
+\item {\textbf{English}: IELTS 7.5 Certificate - Achieved in 2020.}
 
-\cvlistdoubleitem{
-{Electrical Electronic Circuits}}{
-{Micro-processor - Micro-controller}}
+\end{description}
 
-\cvlistdoubleitem{
-{Logic Design with Verilog HDL}}{
-{Internet of Things Application Development}}
+\vspace{-5pt}
 
-\vspace{-1em}
-\section{Technical Skills}
-\cvlistitem{Programming Techniques}
-\cvlistdoubleitem{
-{Object-oriented Programming}}{
-{Version Control}: Git, Github}
-
-\cvlistdoubleitem{
-{Programming Language}: C, C++, Python, Assembly}{
-{Web Technology}: HTML, CSS, Javascript, PHP}
-
-\cvlistdoubleitem{
-{Database System}: PHPMyAdmin, MySQL}{
-{Operating System}: Windows, Linux(Ubuntu)}
-
-\cvlistitem{{Tools:} {Latex, Microsoft Office, Quartus and ModelSim, PSpice for TI, Altium Designer, Proteus}}
-
-\vspace{-1em}
-\section{Course Projects}
-\cventry{HCMUT}{}
-{1. \textit{{\href{https://somelinks}{\textcolor{blue}{~Smart Air Purifier System For Household Usage}}}} }{Sep - Nov 2022}{}{}
-\cvlistitem{Description: The air purifier with abilities to detect temperature, humidity, PM2.5 dust and harmful gases concentration supported by a mobile Flutter application for supervisor and control.}
-\cvlistitem{Language: Python}
-\cvlistitem{Role: Sensor System Implementation and IoTs Gateway Development}
-\cvlistitem{Field: Multidisciplinary Project - Software Engineering Major}
-\cvlistitem{Github project: Still in process}
-%\cvlistitem{Language(used): Python}
-%\cvlistitem{Tools/Libraries (used): Anaconda (Spyder), GPU }
-
-\vspace{2mm}
-\cventry{HCMUT}{}
-{2. \textit{{\href{https://somelinks}{\textcolor{blue}{~Traffic Light with Modes}}} }}{Sep - Nov 2022}{}{}
-\cvlistitem{Description: Traffic light system for an intersection with multiple modes using custom mainboard with STM32F103RBT6 micro-controller}
-\cvlistitem{Language: C}
-\cvlistitem{Role: Collaborative Developer}
-\cvlistitem{Field: Micro-processor - Micro-controller Project}
-\cvlistitem{Github Link: Still in process}
-%\cvlistitem{Language: HTML, PHP, MySql}
-%\cvlistitem{Tools: PhpMyAdmin, Xampp, Abode Dreamweaver}
-
-\vspace{4mm}
-\cventry{HCMUT}{}
-{3. \textit{{\href{https://someLinks}{\textcolor{blue}{~Statistical Research using R}}} }}{May 2022}{}{}
-\cvlistitem{Description: Analyse the relationships between various CPU specifications.}
-\cvlistitem{Language: R, Latex}
-\cvlistitem{Role: Collaborative Developer}
-\cvlistitem{Field: Probability and Statistic Project}
-\cvlistitem{Github Link: github.com}
-
-\vspace{2mm}
-\cventry{HCMUT}{}
-{4. \textit{{\href{https://someLinks}{\textcolor{blue}{~Tic-Tac-Toe Game}}} }}{April 2022}{}{}
-\cvlistitem{Description: 5x5 Tic-Tac-Toe game with some new specific rules.}
-\cvlistitem{Language: Assembly}
-\cvlistitem{Role: Main Developer}
-\cvlistitem{Field: Computer Architecture Project}
-\cvlistitem{Github Link: github.com}
-
-%\cvlistitem{Language: VB}
-%\cvlistitem{Tools: Visual Basic }
-
-\vspace{-1em}
-\section{Achievements/Awards}
-
-\cvlistitem { 
-\textit{{\href{https://someLinks}
-        {\textcolor{blue}{Long Ho's Godfather}}}} (2015).}
-
-%Languages (Spoken/known): Assamese, Bengali, English, Garo, Hindi, Nepali. 
-\vspace{-1em}
-\section{Others}
-\cvlistitem{Languages: Vietnamese(Native Speaker), English(2 Language - IELTS 7.5 Certification - Achieved in 2020)}
 
 \end{document}
-
-
-%% end of file `template.tex'.
