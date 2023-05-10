@@ -1,2 +1,2 @@
 # PersonalResume
-![MarineGEO circle logo](./cv-1.png "MarineGEO logo")
+![lhmqk cv](./cv-1.png "lhmqk cv")
