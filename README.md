@@ -1,2 +1,2 @@
 # PersonalResume
-[alt text](./cv-1.png)
+![MarineGEO circle logo](./cv-1.png "MarineGEO logo")
